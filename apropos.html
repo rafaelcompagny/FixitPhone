@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>À propos — Répar'Tech</title>
+  <style>
+    body {
+      margin:0;
+      font-family: system-ui, sans-serif;
+      background: linear-gradient(180deg,#0f1724 0%, #071023 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height:1.6;
+    }
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px;
+      background:rgba(0,0,0,0.2);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo {
+      width:48px;
+      height:48px;
+      border-radius:10px;
+      background:linear-gradient(135deg,#00b894,#60a5fa);
+      display:grid;
+      place-items:center;
+      font-weight:700;
+      color:#042022;
+      box-shadow:0 6px 18px rgba(0,0,0,0.45);
+    }
+    nav a {
+      margin-left:20px;
+      text-decoration:none;
+      color:#9aa6b2;
+      font-weight:500;
+    }
+    nav a:hover {
+      color:#00b894;
+    }
+    main {
+      max-width:800px;
+      margin:60px auto;
+      padding:0 20px;
+    }
+    h1 {
+      font-size:28px;
+      margin-bottom:12px;
+      color:#00b894;
+    }
+    .card {
+      background:rgba(255,255,255,0.04);
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.5);
+      border:1px solid rgba(255,255,255,0.05);
+    }
+    p {
+      color:#cfd8e3;
+      margin-bottom:16px;
+    }
+    footer {
+      margin-top:40px;
+      padding:20px;
+      text-align:center;
+      color:#9aa6b2;
+      font-size:13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">RT</div>
+      <h2>Répar'Tech</h2>
+    </div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="info.html">Informations</a>
+      <a href="index.html#tarifs">Tarifs</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h1>À propos de moi</h1>
+      <p>
+        Bonjour 👋 Je m'appelle <strong>Rafaël Granero</strong>, j'ai 18 ans et je suis passionné par les nouvelles technologies depuis toujours.
+        J’ai créé <strong>Répar'Tech</strong> pour aider les particuliers et professionnels à prolonger la durée de vie de leurs téléphones et éviter le gaspillage électronique.
+      </p>
+      <p>
+        Après plusieurs petite années d’expérience en réparation de téléphone, un commencement d'étude en BUT GEII (génie éléctrique et informatique industrielle),
+        J'ai pu apprendre lors de ce début d'année tout plein de composant, la création de carte (processeur), et bien sûr la réparation et la maintenance de produit éléctronique.
+        je me suis lancé en micro-entreprise afin de proposer un service de proximité : rapide, fiable et transparent.
+      </p>
+      <p>
+        Mon objectif est simple : vous offrir des réparations de qualité, avec des pièces testées et garanties, le tout à prix raisonnable.
+      </p>
+      <p>
+        Merci de votre confiance 🙏 et à très bientôt chez Répar'Tech !
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Répar'Tech — Micro-entreprise · Tous droits réservés
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
