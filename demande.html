@@ -49,8 +49,8 @@
       <p>-10% sur votre première réparation !</p>
     </div>
     
-     <form action="https://formspree.io/f/mdklbepp" method="POST" enctype="application/x-www-form-urlencoded">
-        <input type="hidden" name="_redirect" value="merci.html"/>
+     <form action="https://formspree.io/f/mdklbepp" method="POST">
+        <input type="hidden" name="_next" value="merci.html">
 
         <label>Votre prénom et votre Nom</label>
         <input type="text" placeholder="Prénom Nom" name="prenom" required>
@@ -66,8 +66,8 @@
         </select>
         
         <label>Description (Obigatoire)</label>
-        <input type="text" placeholder="Marque et modèle, symptômes..." name="description" rows="3" required>
-        
+        <textarea placeholder="Marque et modèle, symptômes..." name="description" rows="3" required></textarea>
+
         <button class="submit" type="submit">📩 Demande de devis express</button>
     </form>
   </main>
