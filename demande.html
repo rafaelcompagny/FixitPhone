@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promotions & Devis Express — FixitPhone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {margin:0; font-family:system-ui, sans-serif; background:#0f1724; color:#e6eef6; line-height:1.6;}
+    header, footer {padding:20px; text-align:center; background:#071023; color:#9aa6b2;}
+    main {max-width:800px; margin:40px auto; padding:20px;}
+    h1 {color:#00b894;}
+    .promo {background:rgba(0,184,148,0.2); padding:20px; border-radius:14px; margin-bottom:20px; text-align:center;}
+    form {display:flex; flex-direction:column; gap:15px; background:rgba(255,255,255,0.05); padding:25px; border-radius:14px;}
+    input, textarea, select {padding:12px; border:none; border-radius:8px;}
+    button {background:#00b894; padding:12px; border:none; border-radius:8px; font-weight:600; cursor:pointer;}
+    button:hover {background:#02d3a1;}
+    
+    .btn{
+      background:var(--accent);
+      color:#042022;padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;display:inline-block;
+      box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    }
+    /* Sidebar */
+    .aside{
+      position:sticky;top:24px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)
+    }
+    .contact-row{display:flex;gap:8px;margin-top:12px}
+    .contact-row a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:inherit}
+    .small{font-size:13px;color:var(--muted)}
+
+    nav a {
+      margin-left:20px;
+      text-decoration:none;
+      color:#9aa6b2;
+      font-weight:500;
+    }
+    nav a:hover {
+      color:#00b894;
+    }
+    .logo-img {
+      height: 40px;   /* Ajuste la hauteur à la taille de ta nav-bar */
+      width: auto;    /* Garde les proportions */
+      border-radius: 8px; /* Optionnel : arrondir comme un logo */
+      vertical-align: middle;
+    }
+    
+    .submit{display:inline-block;text-align:center;padding:10px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#ffffff;font-weight:700;cursor:pointer}
+/* --- Styles par défaut (version ordinateur) --- */
+/* Ton CSS actuel reste inchangé ici */
+
+
+/* --- Version mobile (max 768px ≈ tablettes/portables) --- */
+@media (max-width: 768px) {
+
+  /* Nav-bar en mode hamburger (empilement vertical) */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  /* Logo centré */
+  .logo-img {
+    height: 35px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* Textes moins larges */
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* Sections */
+  section {
+    padding: 20px 10px;
+  }
+
+  /* Formulaire devis / contact */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input, textarea, button {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+/* --- Version très petite (téléphones - max 480px) --- */
+@media (max-width: 480px) {
+
+  /* Réduit la taille des titres */
+  h1, h2 {
+    font-size: 1.5em;
+  }
+
+  /* Bannière promo plus lisible */
+  .promo-banner {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
+    <h2>FixitPhone</h2>
+    <nav>
+        <a class="small" href="index.html">Accueil</a>
+        <a class="small" href="apropos.html">À propos</a>
+        <a class="small" href="info.html">Informations</a>
+        <a class="small" href="FAQ.html">FAQ</a>
+        <a class="small" href="contacter.html">contacter</a>
+        <a class="small" href="demande.html">Prise de RDV</a>
+  </header>
+  <main>
+    <h1>Nos Offres & Devis Express</h1>
+    
+    <div class="promo">
+      <h2>🎉 Promo spéciale ouverture</h2>
+      <p>-10% sur votre première réparation !</p>
+    </div>
+    
+     <form action="https://formspree.io/f/mdklbepp" method="POST" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="_redirect" value="merci.html"/>
+
+        <label>Votre prénom et votre Nom</label>
+        <input type="text" placeholder="Prénom Nom" name="prenom" required>
+        
+        <label>Votre téléphone</label>
+        <input type="tel" placeholder="0123456789" name="telephone" required>
+        
+        <label>Type de réparation souhaitée</label>
+        <select placeholder="--Choisisais--" name="reparation" required>
+            <option value="ecran">Écran cassé</option>
+            <option value="batterie">Batterie faible</option>
+            <option value="autre">Autre</option>
+        </select>
+        
+        <label>Description (Obigatoire)</label>
+        <input type="text" placeholder="Marque et modèle, symptômes..." name="description" rows="3" required>
+        
+        <button class="submit" type="submit">📩 Demande de devis express</button>
+    </form>
+  </main>
+  <footer>
+    © <span id="year"></span> FixitPhone
+  </footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>

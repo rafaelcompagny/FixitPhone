@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Votre expérience simplifiée — FixitPhone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {margin:0; font-family:system-ui, sans-serif; background:#0f1724; color:#e6eef6; line-height:1.6;}
+    header, footer {padding:20px; text-align:center; background:#071023; color:#9aa6b2;}
+    main {max-width:900px; margin:40px auto; padding:20px;}
+    h1 {color:#00b894;}
+    .feature {background:rgba(255,255,255,0.05); padding:20px; border-radius:14px; margin:15px 0;}
+    a.btn {display:inline-block; margin-top:10px; padding:10px 20px; background:#00b894; color:#042022; border-radius:8px; text-decoration:none; font-weight:600;}
+    a.btn:hover {background:#02d3a1;}
+    
+    .btn{
+      background:var(--accent);
+      color:#042022;padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;display:inline-block;
+      box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    }
+    /* Sidebar */
+    .aside{
+      position:sticky;top:24px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)
+    }
+    .contact-row{display:flex;gap:8px;margin-top:12px}
+    .contact-row a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:inherit}
+    .small{font-size:13px;color:var(--muted)}
+
+    nav a {
+      margin-left:20px;
+      text-decoration:none;
+      color:#9aa6b2;
+      font-weight:500;
+    }
+    nav a:hover {
+      color:#00b894;
+    }
+    .logo-img {
+      height: 40px;   /* Ajuste la hauteur à la taille de ta nav-bar */
+      width: auto;    /* Garde les proportions */
+      border-radius: 8px; /* Optionnel : arrondir comme un logo */
+      vertical-align: middle;
+    }
+    /* --- Styles par défaut (version ordinateur) --- */
+/* Ton CSS actuel reste inchangé ici */
+
+
+/* --- Version mobile (max 768px ≈ tablettes/portables) --- */
+@media (max-width: 768px) {
+
+  /* Nav-bar en mode hamburger (empilement vertical) */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  /* Logo centré */
+  .logo-img {
+    height: 35px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* Textes moins larges */
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* Sections */
+  section {
+    padding: 20px 10px;
+  }
+
+  /* Formulaire devis / contact */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input, textarea, button {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+/* --- Version très petite (téléphones - max 480px) --- */
+@media (max-width: 480px) {
+
+  /* Réduit la taille des titres */
+  h1, h2 {
+    font-size: 1.5em;
+  }
+
+  /* Bannière promo plus lisible */
+  .promo-banner {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
+    <h2>FixitPhone</h2>
+    <nav>
+        <a class="small" href="index.html">Accueil</a>
+        <a class="small" href="apropos.html">À propos</a>
+        <a class="small" href="info.html">Informations</a>
+        <a class="small" href="FAQ.html">FAQ</a>
+        <a class="small" href="contacter.html">contacter</a>
+        <a class="small" href="demande.html">Prise de RDV</a>
+      </nav>
+  </header>
+  <main>
+    <h1>Votre confort, notre priorité</h1>
+    
+    <div class="feature">
+      <h2>📞 Contact direct</h2>
+      <p>Un bouton “Appeler maintenant” disponible sur mobile pour gagner du temps. (si ça répond pas laissé un message)</p>
+      <a class="btn" href="tel:+33629482256">📲 Appeler FixitPhone</a>
+    </div>
+    
+    <div class="feature">
+      <h2>💬 Assistance instantanée</h2>
+      <p>Un chat en ligne et WhatsApp intégrés pour obtenir une réponse rapide.</p>
+      <a class="btn" href="https://wa.me/33629482256" target="_blank">💬 Discuter sur WhatsApp</a>
+    </div>
+    
+    <div class="feature">
+      <h2>📍 Localisation facile</h2>
+      <p>Accédez à notre atelier en un clic grâce à Google Maps intégré.</p>
+      <a class="btn" href="https://www.google.com/maps/place/33400+Talence/@44.8060932,-0.6124423,5498m/data=!3m2!1e3!4b1!4m6!3m5!1s0xd552770a6d8990b:0x40665174816d120!8m2!3d44.802614!4d-0.588054!16zL20vMGQ0eGs1?entry=ttu&g_ep=EgoyMDI1MDkyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">📍 Voir sur Maps</a>
+    </div>
+    
+  </main>
+  <footer>
+    © <span id="year"></span> FixitPhone
+  </footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>

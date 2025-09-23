@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pourquoi nous faire confiance — FixitPhone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin:0; font-family:system-ui, sans-serif; background:#0f1724; color:#e6eef6; line-height:1.6;
+    }
+    header, footer {padding:20px; text-align:center; background:#071023; color:#9aa6b2;}
+    main {max-width:900px; margin:40px auto; padding:20px;}
+    h1 {color:#00b894; margin-bottom:20px;}
+    .card {background:rgba(255,255,255,0.05); padding:25px; border-radius:14px; margin-bottom:20px;}
+    strong {color:#00b894;}
+    
+    
+    .btn{
+      background:var(--accent);
+      color:#9aa6b2;padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;display:inline-block;
+      box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    }
+    nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    }
+
+    nav a {
+    text-decoration: none;
+    color: #9aa6b2;
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+    }
+
+    /* Effet au survol */
+    nav a:hover {
+    color: #00b894;
+    }
+
+    /* Petite barre animée au survol */
+    nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #00b894;
+    transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+    width: 100%;
+    }
+    .logo-img {
+      height: 40px;   /* Ajuste la hauteur à la taille de ta nav-bar */
+      width: auto;    /* Garde les proportions */
+      border-radius: 8px; /* Optionnel : arrondir comme un logo */
+      vertical-align: middle;
+    }
+    /* --- Styles par défaut (version ordinateur) --- */
+/* Ton CSS actuel reste inchangé ici */
+
+
+/* --- Version mobile (max 768px ≈ tablettes/portables) --- */
+@media (max-width: 768px) {
+
+  /* Nav-bar en mode hamburger (empilement vertical) */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  /* Logo centré */
+  .logo-img {
+    height: 35px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* Textes moins larges */
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* Sections */
+  section {
+    padding: 20px 10px;
+  }
+
+  /* Formulaire devis / contact */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input, textarea, button {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+/* --- Version très petite (téléphones - max 480px) --- */
+@media (max-width: 480px) {
+
+  /* Réduit la taille des titres */
+  h1, h2 {
+    font-size: 1.5em;
+  }
+
+  /* Bannière promo plus lisible */
+  .promo-banner {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
+    <h2>FixitPhone</h2>
+    <nav>
+        <a class="small" href="index.html">Accueil</a>
+        <a class="small" href="apropos.html">À propos</a>
+        <a class="small" href="info.html">Informations</a>
+        <a class="small" href="FAQ.html">FAQ</a>
+        <a class="small" href="contacter.html">contacter</a>
+        <a class="small" href="demande.html">Prise de RDV</a>
+      </nav>
+  </header>
+  <main>
+    <h1>Comment peut on payer ?</h1>
+     <div class="card">
+      <h2>✅ Les Devis sont il gratuit ?</h2>
+      <p>Oui les devis sont 100% gratuit, et fait rapidement en appel ou par message une fois que le problème est compris</p>
+    </div>
+
+    <div class="card">
+      <h2>✅ Différent moyen de paiment</h2>
+      <p>Nos tarifs avantageux permette de pour payer en liquide, en Carte bancaire (sans contact), virement instantané, virement à l'avance</p>
+    </div>
+
+    <h1>Pourquoi nous faire confiance ?</h1>
+    
+    <div class="card">
+      <h2>✅ Transparence</h2>
+      <p>Nos tarifs sont affichés à l’avance. Pas de frais cachés, pas de mauvaises surprises.</p>
+    </div>
+    
+    <div class="card">
+      <h2>✅ Rapidité</h2>
+      <p>La majorité des réparations sont effectuées <strong>en moins d’une heure</strong>.</p>
+    </div>
+    
+    <div class="card">
+      <h2>✅ Garantie</h2>
+      <p>Toutes nos réparations sont garanties <strong>3 mois</strong> pièces et main d’œuvre.</p>
+    </div>
+    
+    <div class="card">
+      <h2>✅ Confiance</h2>
+      <p>Vos données sont sécurisées : nous ne touchons jamais à vos fichiers personnels.</p>
+    </div>
+    
+    <div class="card">
+      <h2>✅ Avis clients</h2>
+      <p>⭐️⭐️⭐️⭐️⭐️ <br> “Service rapide, écran comme neuf ! Je recommande à 100%.” – Alexia</p>
+    </div>
+
+  </main>
+  <footer>
+    © <span id="year"></span> FixitPhone
+  </footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>

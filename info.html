@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Des question — FixitPhone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Des question — Répar'Tech</title>
   <style>
     body {
       margin:0;
@@ -75,20 +76,93 @@
       color:#9aa6b2;
       font-size:13px;
     }
+    .logo-img {
+      height: 40px;   /* Ajuste la hauteur à la taille de ta nav-bar */
+      width: auto;    /* Garde les proportions */
+      border-radius: 8px; /* Optionnel : arrondir comme un logo */
+      vertical-align: middle;
+    }
+    /* --- Styles par défaut (version ordinateur) --- */
+/* Ton CSS actuel reste inchangé ici */
+
+
+/* --- Version mobile (max 768px ≈ tablettes/portables) --- */
+@media (max-width: 768px) {
+
+  /* Nav-bar en mode hamburger (empilement vertical) */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  /* Logo centré */
+  .logo-img {
+    height: 35px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* Textes moins larges */
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* Sections */
+  section {
+    padding: 20px 10px;
+  }
+
+  /* Formulaire devis / contact */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input, textarea, button {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+/* --- Version très petite (téléphones - max 480px) --- */
+@media (max-width: 480px) {
+
+  /* Réduit la taille des titres */
+  h1, h2 {
+    font-size: 1.5em;
+  }
+
+  /* Bannière promo plus lisible */
+  .promo-banner {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
   </style>
 </head>
 <body>
   <header>
     <div class="brand">
-      <div class="logo">RT</div>
-      <h2>FixitPhone</h2>
+      <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
+      <h2>Répar'Tech</h2>
     </div>
     <nav>
-      <a href="index.html">Accueil</a>
-      <a href="apropos.html">À propos</a>
-      <a href="info.html">Informations</a>
-      <a href="index.html#tarifs">Tarifs</a>
-      <a href="index.html#contact">Contact</a>
+      <a class="small" href="index.html">Accueil</a>
+      <a class="small" href="apropos.html">À propos</a>
+      <a class="small" href="info.html">Informations</a>
+      <a class="small" href="FAQ.html">FAQ</a>
+      <a class="small" href="contacter.html">contacter</a>
+      <a class="small" href="demande.html">Prise de RDV</a>
     </nav>
   </header>
 
@@ -101,7 +175,7 @@
       <p>
         <h1>Sur Instagram : </h1>
         <a href="https://www.instagram.com/repar.tech33/?next=%2F" target="_blank" style="color:#cfd8e3; text-decoration:none; font-weight:bold;">
-          👉 Instagram : Fixit.Phone
+          👉 Instagram : Repar.tech33
         </a>
       <p>
         <h1>Par mail : </h1>
@@ -113,7 +187,7 @@
   </main>
 
   <footer>
-    © <span id="year"></span> FixitPhone — Micro-entreprise · Tous droits réservés
+    © <span id="year"></span> Répar'Tech — Micro-entreprise · Tous droits réservés
   </footer>
 
   <script>
@@ -121,4 +195,3 @@
   </script>
 </body>
 </html>
-

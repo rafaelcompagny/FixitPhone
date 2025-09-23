@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FixitPhone — Réparation de téléphones</title>
+  <title>Répar'Tech — Réparation de téléphones</title>
   <meta name="description" content="Micro-entreprise de réparation de téléphones : écrans, batteries, ports USB, caméras... Prix indiqués. Contactez-nous pour un diagnostic rapide." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root{
       --bg:#0f1724; /* deep navy */
@@ -48,6 +49,14 @@
       width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-grid;place-items:center;font-weight:700;color:#042022;
       box-shadow:0 6px 18px rgba(0,0,0,0.45);
     }
+
+    .logo-img {
+      height: 40px;   /* Ajuste la hauteur à la taille de ta nav-bar */
+      width: auto;    /* Garde les proportions */
+      border-radius: 8px; /* Optionnel : arrondir comme un logo */
+      vertical-align: middle;
+    }
+
     h1{margin:0;font-size:20px}
     .tag{color:var(--muted);font-size:13px}
     nav{display:flex;gap:12px;align-items:center}
@@ -109,24 +118,119 @@
     /* utilities */
     .badge{background:rgba(0,0,0,0.25);padding:6px 10px;border-radius:999px;font-weight:700}
     .kicker{color:var(--accent);font-weight:700}
+    
+    /* Banniere promo */
+    .promo-banner {
+      background: #e76767; /* Vert promo */
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+    }
+
+    .promo-banner p {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-text 12s linear infinite;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    @keyframes scroll-text {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
+    /* --- Styles par défaut (version ordinateur) --- */
+/* Ton CSS actuel reste inchangé ici */
+
+
+  /* --- Version mobile (max 768px ≈ tablettes/portables) --- */
+  @media (max-width: 768px) {
+
+    /* Nav-bar en mode hamburger (empilement vertical) */
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .nav-links li {
+      margin: 0;
+    }
+
+    /* Logo centré */
+    .logo-img {
+      height: 35px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    /* Textes moins larges */
+    body {
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    /* Sections */
+    section {
+      padding: 20px 10px;
+    }
+
+    /* Formulaire devis / contact */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      font-size: 16px;
+    }
+  }
+
+  /* --- Version très petite (téléphones - max 480px) --- */
+  @media (max-width: 480px) {
+
+    /* Réduit la taille des titres */
+    h1, h2 {
+      font-size: 1.5em;
+    }
+
+    /* Bannière promo plus lisible */
+    .promo-banner {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+
+
   </style>
 </head>
 <body>
+  
   <div class="container">
     <header>
       <div class="brand">
-        <div class="logo">RT</div>
+        <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
         <div>
           <h1>FixitPhone</h1>
           <div class="tag">Micro-entreprise — Réparations rapides & garanties</div>
         </div>
+        
       </div>
       <nav>
         <a class="small" href="apropos.html">À propos</a>
         <a class="small" href="info.html">Informations</a>
+        <a class="small" href="FAQ.html">FAQ</a>
+        <a class="small" href="contacter.html">contacter</a>
+        <a class="small" href="demande.html">Prise de RDV</a>
         <a class="small" href="#services">Services</a>
         <a class="small" href="#tarifs">Tarifs</a>
-        <a class="btn" href="#contact">Prise de RDV</a>
+        <a class="btn" href="#contact">Prise de RDV (exprès)</a>
       </nav>
     </header>
 
@@ -174,6 +278,7 @@
             <div class="row"><div class="service-name">Remplacement bouton / vibrations</div><div class="price">€40</div></div>
           </div>
 
+          <p>🔥 Offre : -10% sur la première commande, et -20% si deux réparation en même temps 🔥</p>
           <p class="note">Les prix actuelle peuvent changer (et vont surement chaner) contacter moi. Les prix indiqués sont à titre indicatif et peuvent varier selon le modèle. Devis précis après diagnostic. Pièces d'origine ou équivalentes disponibles.</p>
         </div>
 
@@ -209,7 +314,7 @@
         <div class="contact-row">
           <div>
             <div class="small">Adresse</div>
-            <div class="small">19 rue Lafontaine 33400 Talence(atelier sur RDV)</div>
+            <div class="small">Talence 33400 (atelier sur RDV)</div>
           </div>
         </div>
         <form action="https://formspree.io/f/mdklbepp" method="POST" enctype="application/x-www-form-urlencoded">
@@ -225,7 +330,6 @@
           <select name="service" aria-label="Service demandé">
             <option>Remplacement écran</option>
             <option>Remplacement batterie</option>
-
             <option>Autre</option>
           </select>
 
@@ -240,7 +344,7 @@
     </main>
 
     <footer>
-      © <span id="year"></span> FixitPhone — Micro-entreprise · Tous droits réservés
+      © <span id="year"></span> Répar'Tech — Micro-entreprise · Tous droits réservés
     </footer>
   </div>
 
@@ -249,4 +353,3 @@
   </script>
 </body>
 </html>
-

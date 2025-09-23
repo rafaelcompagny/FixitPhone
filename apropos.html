@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>À propos — FixitPhone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Répar'Tech</title>
   <style>
     body {
       margin:0;
@@ -75,20 +76,93 @@
       color:#9aa6b2;
       font-size:13px;
     }
+    .logo-img {
+      height: 40px;   /* Ajuste la hauteur à la taille de ta nav-bar */
+      width: auto;    /* Garde les proportions */
+      border-radius: 8px; /* Optionnel : arrondir comme un logo */
+      vertical-align: middle;
+    }
+    /* --- Styles par défaut (version ordinateur) --- */
+/* Ton CSS actuel reste inchangé ici */
+
+
+/* --- Version mobile (max 768px ≈ tablettes/portables) --- */
+@media (max-width: 768px) {
+
+  /* Nav-bar en mode hamburger (empilement vertical) */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  /* Logo centré */
+  .logo-img {
+    height: 35px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  /* Textes moins larges */
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* Sections */
+  section {
+    padding: 20px 10px;
+  }
+
+  /* Formulaire devis / contact */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input, textarea, button {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+/* --- Version très petite (téléphones - max 480px) --- */
+@media (max-width: 480px) {
+
+  /* Réduit la taille des titres */
+  h1, h2 {
+    font-size: 1.5em;
+  }
+
+  /* Bannière promo plus lisible */
+  .promo-banner {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
   </style>
 </head>
 <body>
   <header>
     <div class="brand">
-      <div class="logo">FP</div>
-      <h2>FixitPhone</h2>
+      <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
+      <h2>Répar'Tech</h2>
     </div>
     <nav>
-      <a href="index.html">Accueil</a>
-      <a href="apropos.html">À propos</a>
-      <a href="info.html">Informations</a>
-      <a href="index.html#tarifs">Tarifs</a>
-      <a href="index.html#contact">Contact</a>
+      <a class="small" href="index.html">Accueil</a>
+      <a class="small" href="apropos.html">À propos</a>
+      <a class="small" href="info.html">Informations</a>
+      <a class="small" href="FAQ.html">FAQ</a>
+      <a class="small" href="contacter.html">contacter</a>
+      <a class="small" href="demande.html">Prise de RDV</a>
     </nav>
   </header>
 
@@ -97,7 +171,7 @@
       <h1>À propos de moi</h1>
       <p>
         Bonjour 👋 Je m'appelle <strong>Rafaël Granero</strong>, j'ai 18 ans et je suis passionné par les nouvelles technologies depuis toujours.
-        J’ai créé <strong>FixitPhone</strong> pour aider les particuliers et professionnels à prolonger la durée de vie de leurs téléphones et éviter le gaspillage électronique.
+        J’ai créé <strong>Répar'Tech</strong> pour aider les particuliers et professionnels à prolonger la durée de vie de leurs téléphones et éviter le gaspillage électronique.
       </p>
       <p>
         Après plusieurs petite années d’expérience en réparation de téléphone, un commencement d'étude en BUT GEII (génie éléctrique et informatique industrielle),
@@ -114,7 +188,7 @@
   </main>
 
   <footer>
-    © <span id="year"></span> FixitPhone — Micro-entreprise · Tous droits réservés
+    © <span id="year"></span> Répar'Tech — Micro-entreprise · Tous droits réservés
   </footer>
 
   <script>
@@ -122,4 +196,3 @@
   </script>
 </body>
 </html>
-
