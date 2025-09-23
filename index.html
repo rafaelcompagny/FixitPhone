@@ -24,11 +24,14 @@
       <nav class="navbar">
 
       <script>
-        function toggleMenu() {
-          const nav = document.querySelector('.nav-links');
-          nav.classList.toggle('active');
-        }
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
       </script>
+
 
       <!-- Liens du menu -->
       <ul class="nav-links">
@@ -42,7 +45,7 @@
         <li><a class="small" href="#tarifs">Tarifs</a></li>
         <li><a class="btn" href="#contact">Prise de RDV (exprès)</a></li>
       </ul>
-     <div class="hamburger">☰</div>
+     <div class="hamburger" id="hamburger">☰</div>
     </nav>
     </header>
 
