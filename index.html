@@ -17,20 +17,11 @@
         <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
         <div>
           <h1>FixitPhone</h1>
-          <div class="tag">Réparations rapides & garanties</div>
+          <div class="tag">Micro-entreprise — Réparations rapides & garanties</div>
         </div>
         
       </div>
       <nav class="navbar">
-
-      <script>
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.querySelector(".nav-links");
-
-        hamburger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-        });
-      </script>
 
 
       <!-- Liens du menu -->
@@ -45,8 +36,8 @@
         <li><a class="small" href="#tarifs">Tarifs</a></li>
         <li><a class="btn" href="#contact">Prise de RDV (exprès)</a></li>
       </ul>
-     <div class="hamburger" id="hamburger">☰</div>
     </nav>
+    <div class="hamburger" id="hamburger">☰</div>
     </header>
 
     <main>
@@ -166,6 +157,13 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        hamburger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      </script>
 </body>
 </html>
-
