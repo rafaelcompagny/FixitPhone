@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Des question — Répar'Tech</title>
+  <link rel="shortcut icon" href="img/logo.jpg" type="image/gif">
   <style>
     body {
       margin:0;
@@ -147,6 +148,55 @@
     padding: 8px;
   }
 }
+/* --- NAVBAR ORDINATEUR --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #222;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hamburger {
+  display: none; /* Caché sur PC */
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Caché par défaut */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .nav-links.active {
+    display: flex; /* Affiché quand activé */
+  }
+
+  .hamburger {
+    display: block; /* Visible sur mobile */
+  }
+}
 
   </style>
 </head>
@@ -156,13 +206,25 @@
       <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
       <h2>Répar'Tech</h2>
     </div>
-    <nav>
-      <a class="small" href="index.html">Accueil</a>
-      <a class="small" href="apropos.html">À propos</a>
-      <a class="small" href="info.html">Informations</a>
-      <a class="small" href="FAQ.html">FAQ</a>
-      <a class="small" href="contacter.html">contacter</a>
-      <a class="small" href="demande.html">Prise de RDV</a>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
+      </a>
+
+      <!-- Bouton hamburger (uniquement visible sur mobile) -->
+      <div class="hamburger" onclick="toggleMenu()">
+        ☰
+      </div>
+
+      <!-- Liens du menu -->
+      <ul class="nav-links">
+        <li><a class="small" href="index.html">Accueil</a></li>
+        <li><a class="small" href="apropos.html">À propos</a></li>
+        <li><a class="small" href="info.html">Informations</a></li>
+        <li><a class="small" href="FAQ.html">FAQ</a></li>
+        <li><a class="small" href="contacter.html">contacter</a></li>
+        <li><a class="small" href="demande.html">Prise de RDV</a></li>
+      </ul>
     </nav>
   </header>
 
