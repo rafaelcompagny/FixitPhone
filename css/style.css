@@ -1,0 +1,415 @@
+/* --------------------- */
+/* VARIABLES GLOBALES */
+/* --------------------- */
+:root {
+  --bg: #0f1724;         /* Bleu nuit profond */
+  --card: #0b1220;       /* Fond des cartes */
+  --muted: #9aa6b2;      /* Texte secondaire */
+  --accent: #00b894;     /* Vert turquoise */
+  --accent-2: #60a5fa;   /* Bleu clair */
+  --glass: rgba(255, 255, 255, 0.04);
+  --max-w: 1100px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* --------------------- */
+/* BASE */
+/* --------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, #071023 100%);
+  color: #e6eef6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  font-size: 16px;
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+}
+
+/* --------------------- */
+/* HEADER + NAVBAR */
+/* --------------------- */
+header {
+  background: #0f172a; /* couleur bleu nuit */
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;   /* <<<<< ça fixe en haut */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+main {
+  margin-top: 120px; /* pour éviter que le contenu passe sous la nav */
+  padding: 20px;
+  max-width:800px;
+  margin:60px auto;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  border-radius: 8px;
+  vertical-align: middle;
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  margin-bottom:12px;
+  color:#00b894;
+}
+
+.tag {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00b894;
+}
+
+/* Bouton "RDV" */
+.btn {
+  white-space: nowrap;
+  background: #00b894;
+  color: #042022;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #336158;
+  color: white;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* --------------------- */
+/* HERO + SERVICES */
+/* --------------------- */
+.hero {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.hero h2 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.services {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.service {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.service svg {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.service h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.service p {
+  margin: 4px 0 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* --------------------- */
+/* TARIFS */
+/* --------------------- */
+.pricing {
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.pricing .row {
+  display: flex;
+  padding: 12px 14px;
+  gap: 8px;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
+}
+
+.pricing .row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.pricing .service-name {
+  flex: 1;
+}
+
+.price {
+  min-width: 110px;
+  text-align: right;
+  font-weight: 700;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* --------------------- */
+/* SIDEBAR CONTACT */
+/* --------------------- */
+.aside {
+  position: sticky;
+  top: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.contact-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.contact-row a {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+input, textarea, select {
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  border-radius: 8px;
+  color: inherit;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.submit {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #042022;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit:hover {
+  opacity: 0.9;
+}
+
+/* --------------------- */
+/* FOOTER */
+/* --------------------- */
+footer {
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* --------------------- */
+/* BANNIERE PROMO */
+/* --------------------- */
+.promo-banner {
+  background: #e76767;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.promo-banner p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-text 12s linear infinite;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+@keyframes scroll-text {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* --------------------- */
+/* RESPONSIVE DESIGN */
+/* --------------------- */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .logo-img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Menu caché par défaut */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.4s ease;
+  }
+
+  /* Menu actif */
+  .nav-links.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .promo-banner {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.5em;
+  }
+}
+
+
+
+.card {
+      background:rgba(255,255,255,0.04);
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.5);
+      border:1px solid rgba(255,255,255,0.05);
+    }

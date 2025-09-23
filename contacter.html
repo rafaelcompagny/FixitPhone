@@ -6,185 +6,40 @@
   <title>FixitPhone</title>
   <link rel="shortcut icon" href="img/logo.jpg" type="image/gif">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {margin:0; font-family:system-ui, sans-serif; background:#0f1724; color:#e6eef6; line-height:1.6;}
-    header, footer {padding:20px; text-align:center; background:#071023; color:#9aa6b2;}
-    main {max-width:900px; margin:40px auto; padding:20px;}
-    h1 {color:#00b894;}
-    .feature {background:rgba(255,255,255,0.05); padding:20px; border-radius:14px; margin:15px 0;}
-    a.btn {display:inline-block; margin-top:10px; padding:10px 20px; background:#00b894; color:#042022; border-radius:8px; text-decoration:none; font-weight:600;}
-    a.btn:hover {background:#02d3a1;}
-    
-    .btn{
-      background:var(--accent);
-      color:#042022;padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;display:inline-block;
-      box-shadow:0 6px 18px rgba(0,0,0,0.25);
-    }
-    /* Sidebar */
-    .aside{
-      position:sticky;top:24px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)
-    }
-    .contact-row{display:flex;gap:8px;margin-top:12px}
-    .contact-row a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:inherit}
-    .small{font-size:13px;color:var(--muted)}
-
-    nav a {
-      margin-left:20px;
-      text-decoration:none;
-      color:#9aa6b2;
-      font-weight:500;
-    }
-    nav a:hover {
-      color:#00b894;
-    }
-    .logo-img {
-      height: 40px;   /* Ajuste la hauteur à la taille de ta nav-bar */
-      width: auto;    /* Garde les proportions */
-      border-radius: 8px; /* Optionnel : arrondir comme un logo */
-      vertical-align: middle;
-    }
-    /* --- Styles par défaut (version ordinateur) --- */
-/* Ton CSS actuel reste inchangé ici */
-
-
-/* --- Version mobile (max 768px ≈ tablettes/portables) --- */
-@media (max-width: 768px) {
-
-  /* Nav-bar en mode hamburger (empilement vertical) */
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .nav-links li {
-    margin: 0;
-  }
-
-  /* Logo centré */
-  .logo-img {
-    height: 35px;
-    margin: 10px auto;
-    display: block;
-  }
-
-  /* Textes moins larges */
-  body {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  /* Sections */
-  section {
-    padding: 20px 10px;
-  }
-
-  /* Formulaire devis / contact */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  input, textarea, button {
-    width: 100%;
-    font-size: 16px;
-  }
-}
-
-/* --- Version très petite (téléphones - max 480px) --- */
-@media (max-width: 480px) {
-
-  /* Réduit la taille des titres */
-  h1, h2 {
-    font-size: 1.5em;
-  }
-
-  /* Bannière promo plus lisible */
-  .promo-banner {
-    font-size: 14px;
-    padding: 8px;
-  }
-}
-/* --- NAVBAR ORDINATEUR --- */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: #222;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.hamburger {
-  display: none; /* Caché sur PC */
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
-}
-
-/* --- VERSION MOBILE --- */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none; /* Caché par défaut */
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #333;
-    padding: 15px;
-    border-radius: 8px;
-  }
-
-  .nav-links.active {
-    display: flex; /* Affiché quand activé */
-  }
-
-  .hamburger {
-    display: block; /* Visible sur mobile */
-  }
-}
-
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
-    <h2>FixitPhone</h2>
-    <nav class="navbar">
-      <a href="index.html" class="logo">
+  <div class="container">
+    <header>
+      <div class="brand">
         <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
-      </a>
-
-      <!-- Bouton hamburger (uniquement visible sur mobile) -->
-      <div class="hamburger" onclick="toggleMenu()">
-        ☰
+        <div>
+          <h1>FixitPhone - FAQ</h1>
+          <div class="tag">Micro-entreprise — Réparations rapides & garanties</div>
+        </div>
+        
       </div>
+      <nav class="navbar">
+
+      <script>
+        function toggleMenu() {
+          const nav = document.querySelector('.nav-links');
+          nav.classList.toggle('active');
+        }
+      </script>
 
       <!-- Liens du menu -->
       <ul class="nav-links">
-        <li><a class="small" href="index.html">Accueil</a></li>
+        <li><a class="small" href="index.html">Acceuil</a></li>
         <li><a class="small" href="apropos.html">À propos</a></li>
         <li><a class="small" href="info.html">Informations</a></li>
         <li><a class="small" href="FAQ.html">FAQ</a></li>
         <li><a class="small" href="contacter.html">contacter</a></li>
         <li><a class="small" href="demande.html">Prise de RDV</a></li>
       </ul>
+     <div class="hamburger">☰</div>
     </nav>
-  </header>
+    </header>
   <main>
     <h1>Votre confort, notre priorité</h1>
     
@@ -210,6 +65,7 @@
   <footer>
     © <span id="year"></span> FixitPhone
   </footer>
+  </div>
   <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 </html>

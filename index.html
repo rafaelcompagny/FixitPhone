@@ -7,259 +7,7 @@
   <link rel="shortcut icon" href="img/logo.jpg" type="image/gif">
   <meta name="description" content="Micro-entreprise de réparation de téléphones : écrans, batteries, ports USB, caméras... Prix indiqués. Contactez-nous pour un diagnostic rapide." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root{
-      --bg:#0f1724; /* deep navy */
-      --card:#0b1220;
-      --muted:#9aa6b2;
-      --accent:#00b894; /* teal */
-      --accent-2:#60a5fa; /* blue */
-      --glass: rgba(255,255,255,0.04);
-      --max-w:1100px;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:linear-gradient(180deg,var(--bg) 0%, #071023 100%);
-      color: #e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.4;
-      padding:32px 16px;
-      display:flex;
-      justify-content:center;
-      font-size:16px;
-    }
-    .container{
-      width:100%;
-      max-width:var(--max-w);
-    }
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;      
-      margin-bottom:28px;
-    }
-    .brand{
-      display:flex;align-items:center;gap:12px;
-    }
-    .logo{
-      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-grid;place-items:center;font-weight:700;color:#042022;
-      box-shadow:0 6px 18px rgba(0,0,0,0.45);
-    }
-
-    .logo-img {
-      height: 40px;   /* Ajuste la hauteur à la taille de ta nav-bar */
-      width: auto;    /* Garde les proportions */
-      border-radius: 8px; /* Optionnel : arrondir comme un logo */
-      vertical-align: middle;
-    }
-
-    h1{margin:0;font-size:20px}
-    .tag{color:var(--muted);font-size:13px}
-    nav{display:flex;gap:12px;align-items:center}
-    .btn{
-      background:var(--accent);
-      color:#042022;padding:10px 14px;border-radius:10px;font-weight:600;text-decoration:none;display:inline-block;
-      box-shadow:0 6px 18px rgba(0,0,0,0.25);
-    }
-    main{
-      display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start;
-    }
-    @media (max-width:900px){
-      main{grid-template-columns:1fr;}
-      header{flex-direction:column;align-items:flex-start}
-      .logo{width:48px;height:48px}
-    }
-    .hero{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:20px;border-radius:14px;box-shadow:0 8px 30px rgba(2,6,23,0.6);
-      border:1px solid rgba(255,255,255,0.03);
-    }
-    .hero h2{margin:0 0 8px 0;font-size:22px}
-    .hero p{margin:0;color:var(--muted)}
-
-    /* Services list */
-    .services{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    @media (max-width:700px){.services{grid-template-columns:1fr}}
-    .service{
-      background:var(--card);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
-      display:flex;gap:12px;align-items:center
-    }
-    .service svg{width:36px;height:36px;flex-shrink:0}
-    .service h3{margin:0;font-size:15px}
-    .service p{margin:4px 0 0 0;color:var(--muted);font-size:13px}
-
-    /* Price table */
-    .pricing{margin-top:20px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
-    .pricing .row{display:flex;padding:12px 14px;gap:8px;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
-    .pricing .row:nth-child(even){background:rgba(255,255,255,0.01)}
-    .pricing .service-name{flex:1}
-    .price{min-width:110px;text-align:right;font-weight:700}
-    .note{color:var(--muted);font-size:13px;margin-top:8px}
-
-    /* Sidebar */
-    .aside{
-      position:sticky;top:24px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)
-    }
-    .contact-row{display:flex;gap:8px;margin-top:12px}
-    .contact-row a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:inherit}
-    .small{font-size:13px;color:var(--muted)}
-
-    form{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-    input,textarea,select{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:10px;border-radius:8px;color:inherit}
-    textarea{min-height:100px;resize:vertical}
-    .submit{display:inline-block;text-align:center;padding:10px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042022;font-weight:700;cursor:pointer}
-
-    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
-
-    /* utilities */
-    .badge{background:rgba(0,0,0,0.25);padding:6px 10px;border-radius:999px;font-weight:700}
-    .kicker{color:var(--accent);font-weight:700}
-    
-    /* Banniere promo */
-    .promo-banner {
-      background: #e76767; /* Vert promo */
-      color: white;
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 10px 0;
-    }
-
-    .promo-banner p {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-text 12s linear infinite;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    @keyframes scroll-text {
-      from { transform: translateX(0); }
-      to { transform: translateX(-100%); }
-    }
-
-    /* --- Styles par défaut (version ordinateur) --- */
-/* Ton CSS actuel reste inchangé ici */
-
-
-  /* --- Version mobile (max 768px ≈ tablettes/portables) --- */
-  @media (max-width: 768px) {
-
-    /* Nav-bar en mode hamburger (empilement vertical) */
-    .nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .nav-links li {
-      margin: 0;
-    }
-
-    /* Logo centré */
-    .logo-img {
-      height: 35px;
-      margin: 10px auto;
-      display: block;
-    }
-
-    /* Textes moins larges */
-    body {
-      font-size: 16px;
-      padding: 10px;
-    }
-
-    /* Sections */
-    section {
-      padding: 20px 10px;
-    }
-
-    /* Formulaire devis / contact */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    input, textarea, button {
-      width: 100%;
-      font-size: 16px;
-    }
-  }
-
-  /* --- Version très petite (téléphones - max 480px) --- */
-  @media (max-width: 480px) {
-
-    /* Réduit la taille des titres */
-    h1, h2 {
-      font-size: 1.5em;
-    }
-
-    /* Bannière promo plus lisible */
-    .promo-banner {
-      font-size: 14px;
-      padding: 8px;
-    }
-  }
-  /* --- NAVBAR ORDINATEUR --- */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: #222;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.hamburger {
-  display: none; /* Caché sur PC */
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
-}
-
-/* --- VERSION MOBILE --- */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none; /* Caché par défaut */
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #333;
-    padding: 15px;
-    border-radius: 8px;
-  }
-
-  .nav-links.active {
-    display: flex; /* Affiché quand activé */
-  }
-
-  .hamburger {
-    display: block; /* Visible sur mobile */
-  }
-}
-
-
-
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   
@@ -274,17 +22,17 @@
         
       </div>
       <nav class="navbar">
-      <a href="index.html" class="logo">
-        <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
-      </a>
 
-      <!-- Bouton hamburger (uniquement visible sur mobile) -->
-      <div class="hamburger" onclick="toggleMenu()">
-        ☰
-      </div>
+      <script>
+        function toggleMenu() {
+          const nav = document.querySelector('.nav-links');
+          nav.classList.toggle('active');
+        }
+      </script>
 
       <!-- Liens du menu -->
       <ul class="nav-links">
+        <li><a class="small" href="index.html">Acceuil</a></li>
         <li><a class="small" href="apropos.html">À propos</a></li>
         <li><a class="small" href="info.html">Informations</a></li>
         <li><a class="small" href="FAQ.html">FAQ</a></li>
@@ -294,6 +42,7 @@
         <li><a class="small" href="#tarifs">Tarifs</a></li>
         <li><a class="btn" href="#contact">Prise de RDV (exprès)</a></li>
       </ul>
+     <div class="hamburger">☰</div>
     </nav>
     </header>
 
