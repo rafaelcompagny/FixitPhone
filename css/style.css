@@ -220,11 +220,11 @@ h1 {
 }
 
 .service {
-    max-width: 40%;
-    flex: 1 1 40%;
+    max-width: 80%;
+    flex: 1 1 80%;
     background: var(--card);
     box-sizing: border-box;
-    padding: 15px;
+    padding: 12px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.02);
     display: flex;
