@@ -1,6 +1,6 @@
-/* --------------------- */
+/* ================================================= */
 /* VARIABLES GLOBALES */
-/* --------------------- */
+/* ================================================= */
 :root {
   --bg: #0f1724;         /* Bleu nuit profond */
   --card: #0b1220;       /* Fond des cartes */
@@ -9,12 +9,13 @@
   --accent-2: #60a5fa;   /* Bleu clair */
   --glass: rgba(255, 255, 255, 0.04);
   --max-w: 1100px;
+
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
-/* --------------------- */
-/* BASE */
-/* --------------------- */
+/* ================================================= */
+/* RESET & BASE */
+/* ================================================= */
 * {
   box-sizing: border-box;
 }
@@ -41,31 +42,30 @@ body {
   max-width: var(--max-w);
 }
 
-/* --------------------- */
+/* ================================================= */
 /* HEADER + NAVBAR */
-/* --------------------- */
+/* ================================================= */
 header {
-  background: #0f172a; /* couleur bleu nuit */
+  background: #0f172a;
   color: white;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;   /* <<<<< ça fixe en haut */
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 0; left: 0;
   width: 100%;
   z-index: 1000;
 }
 
 main {
-  margin-top: 120px; /* pour éviter que le contenu passe sous la nav */
+  margin-top: 120px; /* évite le chevauchement */
   padding: 20px;
-  max-width:800px;
-  margin:60px auto;
+  max-width: 800px;
+  margin: 60px auto;
 }
 
-
+/* -------- LOGO -------- */
 .brand {
   display: flex;
   align-items: center;
@@ -76,14 +76,13 @@ main {
   height: 48px;
   width: auto;
   border-radius: 8px;
-  vertical-align: middle;
 }
 
 h1 {
   margin: 0;
   font-size: 20px;
-  margin-bottom:12px;
-  color:#00b894;
+  margin-bottom: 12px;
+  color: var(--accent);
 }
 
 .tag {
@@ -91,7 +90,7 @@ h1 {
   font-size: 13px;
 }
 
-/* NAVBAR */
+/* -------- NAV -------- */
 .navbar {
   display: flex;
   align-items: center;
@@ -99,26 +98,52 @@ h1 {
 }
 
 .nav-links {
-  display: flex;
-  list-style: none;
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;          /* occupe toute la hauteur */
+  width: 250px;           /* largeur du panneau */
+  background: #0f1724;
+  padding: 20px;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transform: translateX(100%);
   gap: 20px;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
 }
 
 .nav-links a {
-  color: white;
+  color: #6be4cc;
   text-decoration: none;
+  font-size: 1rem;
   font-weight: 600;
   transition: color 0.3s;
 }
 
-.nav-links a:hover {
-  color: #00b894;
+.nav-links.active {
+    display: flex;
+    transform: translateX(0);
+    max-height: 650px; /* assez grand pour contenir tous les liens */
 }
 
-/* Bouton "RDV" */
+/* Animation des liens */
+.nav-links li {
+  margin: 15px 0;
+  list-style: none;
+}
+
+.nav-links a:hover {
+  color: #336158;
+}
+
+/* -------- BOUTON RDV -------- */
 .btn {
   white-space: nowrap;
-  background: #00b894;
+  background: var(--accent);
   color: #042022;
   padding: 8px 14px;
   border-radius: 8px;
@@ -134,26 +159,41 @@ h1 {
   color: white;
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0; /* le logo ne se réduit pas trop */
-}
-
-/* Hamburger */
+/* ================================================= */
+/* HAMBURGER ANIMÉ */
+/* ================================================= */
 .hamburger {
-  display: none;
-  font-size: 26px;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  flex-shrink: 0;
+    cursor: pointer;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    z-index: 1100;
 }
 
-/* --------------------- */
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Croix quand actif */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(9px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-9px);
+}
+
+/* ================================================= */
 /* HERO + SERVICES */
-/* --------------------- */
+/* ================================================= */
 .hero {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
   padding: 20px;
@@ -192,7 +232,6 @@ h1 {
 .service svg {
   width: 36px;
   height: 36px;
-  flex-shrink: 0;
 }
 
 .service h3 {
@@ -201,14 +240,14 @@ h1 {
 }
 
 .service p {
-  margin: 4px 0 0 0;
+  margin: 4px 0 0;
   color: var(--muted);
   font-size: 13px;
 }
 
-/* --------------------- */
+/* ================================================= */
 /* TARIFS */
-/* --------------------- */
+/* ================================================= */
 .pricing {
   margin-top: 20px;
   border-radius: 12px;
@@ -219,7 +258,6 @@ h1 {
 .pricing .row {
   display: flex;
   padding: 12px 14px;
-  gap: 8px;
   align-items: center;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent);
 }
@@ -244,9 +282,9 @@ h1 {
   margin-top: 8px;
 }
 
-/* --------------------- */
+/* ================================================= */
 /* SIDEBAR CONTACT */
-/* --------------------- */
+/* ================================================= */
 .aside {
   position: sticky;
   top: 24px;
@@ -296,8 +334,6 @@ textarea {
 }
 
 .submit {
-  display: inline-block;
-  text-align: center;
   padding: 10px;
   border-radius: 10px;
   border: none;
@@ -312,9 +348,9 @@ textarea {
   opacity: 0.9;
 }
 
-/* --------------------- */
+/* ================================================= */
 /* FOOTER */
-/* --------------------- */
+/* ================================================= */
 footer {
   margin-top: 28px;
   color: var(--muted);
@@ -322,9 +358,9 @@ footer {
   text-align: center;
 }
 
-/* --------------------- */
+/* ================================================= */
 /* BANNIERE PROMO */
-/* --------------------- */
+/* ================================================= */
 .promo-banner {
   background: #e76767;
   color: white;
@@ -346,95 +382,46 @@ footer {
   to { transform: translateX(-100%); }
 }
 
-/* --------------------- */
+/* ================================================= */
 /* RESPONSIVE DESIGN */
-/* --------------------- */
+/* ================================================= */
 @media (max-width: 900px) {
-  main {
-    grid-template-columns: 1fr;
-  }
   header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .logo-img {
-    height: 40px;
+    flex-direction: row;
   }
 }
 
 @media (max-width: 768px) {
   /* Menu caché par défaut */
   .nav-links {
-    display: none;
-    flex-direction: column;
     position: absolute;
     top: 70px;
     right: 20px;
-    background: #333;
+    flex-direction: column;
+    background: #111827;
+    border-radius: 10px;
     padding: 15px;
-    border-radius: 8px;
-    opacity: 0;
-    transform: translateY(-20px);
-    pointer-events: none;
-    transition: all 0.4s ease;
-  }
+    width: 220px;
 
-  .service-box {
-    flex: 1 1 100%; /* prend toute la largeur */
-    margin: 10px 0; /* espacement vertical */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
   }
 
   /* Menu actif */
   .nav-links.active {
-    display: flex;
+    max-height: 500px;
     opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
   }
 
-  nav ul {
-    display: none; /* masqué par défaut */
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #111827;
-    border-radius: 10px;
-    padding: 10px;
-    width: 200px;
-  }
-
-  nav ul.show {
-    display: flex; /* affiché quand actif */
-  }
-
   .hamburger {
-    display: block;
+    display: flex;
   }
 
   .nav-links li {
     margin: 10px 0;
-  }
-
-  body {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  .promo-banner {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  .hero {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-    border-radius: 14px;
-    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    width: 100%;
-    max-width: 95%;
-    padding: 15px;
-    font-size: 0.9rem;
   }
 }
 
@@ -444,26 +431,39 @@ footer {
   }
 }
 
-
-
+/* ================================================= */
+/* EXTRA */
+/* ================================================= */
 .card {
-      background:rgba(255,255,255,0.04);
-      padding:30px;
-      border-radius:16px;
-      box-shadow:0 8px 30px rgba(0,0,0,0.5);
-      border:1px solid rgba(255,255,255,0.05);
-    }
+  background: rgba(255,255,255,0.04);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.05);
+}
 
+.chat-box {
+  max-width: 600px;
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+}
+.messages {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.message { margin: 5px 0; }
+.message.client { text-align: right; color: blue; }
+.message.bot { text-align: left; color: green; }
 
+.chat-input { display: flex; gap: 10px; }
+.chat-input input { flex: 1; padding: 10px; }
 
-.chat-box { max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 10px; padding: 20px; }
-    .messages { height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
-    .message { margin: 5px 0; }
-    .message.client { text-align: right; color: blue; }
-    .message.bot { text-align: left; color: green; }
-    .chat-input { display: flex; gap: 10px; }
-    .chat-input input { flex: 1; padding: 10px; }
-
+/* WhatsApp flottant */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -481,9 +481,7 @@ footer {
   transform: scale(1.1);
 }
 
-
-a{
-    color: white;
-    size: 10px;
-
+/* Liens généraux */
+a {
+  color: white;
 }

@@ -35,12 +35,14 @@
         <li><a class="small" href="Vente.html">Vente</a></li>
         <li><a class="small" href="blog.html">Notre blog</a></li>
         <li><a class="small" href="pro.html">Page de partenariat</a></li>
-        <li><a class="small" href="#services">Services</a></li>
-        <li><a class="small" href="#tarifs">Tarifs</a></li>
-        <li><a class="btn" href="#contact">Prise de RDV (exprès)</a></li>
       </ul>
     </nav>
-    <div class="hamburger" id="hamburger">☰</div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     </header>
 
     <main>
@@ -160,14 +162,38 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <script>
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.querySelector(".nav-links");
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
 
-        hamburger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-        });
-      </script>
+    // Toggle menu
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation(); // empêche de fermer direct
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("active");
+    });
+
+    // Fermer si on clique sur un lien
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("active");
+      });
+    });
+
+    // Fermer si on clique en dehors
+    document.addEventListener("click", (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("active");
+      }
+    });
+  });
+  </script>
+
+
+
 
         <a href="https://wa.me/33629482256" target="_blank" class="whatsapp-float">
       💬 Discuter sur WhatsApp
