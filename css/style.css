@@ -47,7 +47,7 @@ body {
 header {
   background: #0f172a; /* couleur bleu nuit */
   color: white;
-  padding: 15px 30px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -134,13 +134,21 @@ h1 {
   color: white;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0; /* le logo ne se réduit pas trop */
+}
+
 /* Hamburger */
 .hamburger {
   display: none;
-  font-size: 28px;
+  font-size: 26px;
   color: white;
   cursor: pointer;
   user-select: none;
+  flex-shrink: 0;
 }
 
 /* --------------------- */
@@ -384,6 +392,22 @@ footer {
     pointer-events: auto;
   }
 
+  nav ul {
+    display: none; /* masqué par défaut */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #111827;
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+  }
+
+  nav ul.show {
+    display: flex; /* affiché quand actif */
+  }
+
   .hamburger {
     display: block;
   }
@@ -461,5 +485,5 @@ footer {
 a{
     color: white;
     size: 10px;
-    
+
 }
