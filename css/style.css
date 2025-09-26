@@ -371,6 +371,11 @@ footer {
     transition: all 0.4s ease;
   }
 
+  .service-box {
+    flex: 1 1 100%; /* prend toute la largeur */
+    margin: 10px 0; /* espacement vertical */
+  }
+
   /* Menu actif */
   .nav-links.active {
     display: flex;
@@ -424,3 +429,37 @@ footer {
       box-shadow:0 8px 30px rgba(0,0,0,0.5);
       border:1px solid rgba(255,255,255,0.05);
     }
+
+
+
+.chat-box { max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 10px; padding: 20px; }
+    .messages { height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+    .message { margin: 5px 0; }
+    .message.client { text-align: right; color: blue; }
+    .message.bot { text-align: left; color: green; }
+    .chat-input { display: flex; gap: 10px; }
+    .chat-input input { flex: 1; padding: 10px; }
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 30px;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+
+a{
+    color: white;
+    size: 10px;
+    
+}

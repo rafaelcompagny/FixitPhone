@@ -14,7 +14,7 @@
       <div class="brand">
         <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
         <div>
-          <h1>FixitPhone - FAQ</h1>
+          <h1>FixitPhone - Vente</h1>
           <div class="tag">Micro-entreprise — Réparations rapides & garanties</div>
         </div>
         
@@ -43,46 +43,61 @@
     </nav>
     <div class="hamburger" id="hamburger">☰</div>
     </header>
-  <main>
-    <h1>Comment peut on payer ?</h1>
-     <div class="card">
-      <h2>✅ Les Devis sont il gratuit ?</h2>
-      <p>Oui les devis sont 100% gratuit, et fait rapidement en appel ou par message une fois que le problème est compris</p>
-    </div>
 
-    <div class="card">
-      <h2>✅ Différent moyen de paiment</h2>
-      <p>Nos tarifs avantageux permette de pour payer en liquide, en Carte bancaire (sans contact), virement instantané, virement à l'avance</p>
-    </div>
+    
+  <main class="container">
+    <h1>📲 Achat et Revente de Téléphones</h1>
 
-    <h1>Pourquoi nous faire confiance ?</h1>
-    
-    <div class="card">
-      <h2>✅ Transparence</h2>
-      <p>Nos tarifs sont affichés à l’avance. Pas de frais cachés, pas de mauvaises surprises.</p>
-    </div>
-    
-    <div class="card">
-      <h2>✅ Rapidité</h2>
-      <p>La majorité des réparations sont effectuées <strong>en moins d’une heure</strong>.</p>
-    </div>
-    
-    <div class="card">
-      <h2>✅ Garantie</h2>
-      <p>Toutes nos réparations sont garanties <strong>3 mois</strong> pièces et main d’œuvre.</p>
-    </div>
-    
-    <div class="card">
-      <h2>✅ Confiance</h2>
-      <p>Vos données sont sécurisées : nous ne touchons jamais à vos fichiers personnels.</p>
-    </div>
-    
-    <div class="card">
-      <h2>✅ Avis clients</h2>
-      <p>⭐️⭐️⭐️⭐️⭐️ <br> “Service rapide, écran comme neuf ! Je recommande à 100%.” – Alexia</p>
-    </div>
+    <section class="offer">
+      <h2>💰 Nous rachetons vos téléphones cassés</h2>
+      <p>Ne laissez pas vos smartphones inutilisés dormir dans un tiroir. FixIt Phone les rachète et leur donne une seconde vie.</p>
+        <form action="https://formspree.io/f/mdklbepp" method="POST" enctype="application/x-www-form-urlencoded>
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" required>
 
+            <label for="email">Email :</label>
+            <input type="email" name="email" required>
+
+            <label for="tel">Téléphone :</label>
+            <input type="text" name="tel" required>
+
+            <label for="modele">Modèle du téléphone :</label>
+            <input type="text" name="modele" required>
+
+            <label for="etat">État :</label>
+            <select name="etat" required>
+                <option value="ecran_cassé">Écran cassé</option>
+                <option value="batterie_faible">Batterie faible</option>
+                <option value="oxydé">Oxydé</option>
+                <option value="autre">Autre</option>
+            </select>
+
+            <label for="details">Détails :</label>
+            <textarea name="details" required></textarea>
+
+            <button type="submit">Envoyer ma demande</button>
+        </form>
+
+    </section>
+
+    <section class="products">
+      <h2>📦 Téléphones reconditionnés disponibles</h2>
+      <div class="product-card">
+        <h3>Samsung A20e</h3>
+        <p>État : Très bon - Garantie 6 mois</p>
+        <p class="price">100 €</p>
+        <a class="btn" href="leboncoin" target="_blank">Commander</a>
+      </div>
+
+      <div class="product-card">
+        <h3>Samsung A20e</h3>
+        <p>État : Très Bon - Garantie 6 mois</p>
+        <p class="price">100 €</p>
+        <a class="btn" href="leboncoin" target="_blank">Commander</a>
+      </div>
+    </section>
   </main>
+
   <footer>
     © <span id="year"></span> FixitPhone
   </footer>

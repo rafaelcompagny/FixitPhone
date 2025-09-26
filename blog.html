@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FixitPhone</title>
   <link rel="shortcut icon" href="img/logo.jpg" type="image/gif">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
       <div class="brand">
         <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
         <div>
-          <h1>FixitPhone - FAQ</h1>
+          <h1>FixitPhone - Vente</h1>
           <div class="tag">Micro-entreprise — Réparations rapides & garanties</div>
         </div>
         
@@ -43,34 +43,27 @@
     </nav>
     <div class="hamburger" id="hamburger">☰</div>
     </header>
+  <main class="container">
+    <h1>Notre Blog</h1>
+    <section class="blog-posts">
+      <article class="post">
+        <h2>📱 iPhone ou Android : lequel coûte le moins cher à réparer ?</h2>
+        <p>Nous avons comparé les coûts moyens de réparation entre les deux univers... (la suite arrive bientot)</p>
+        <a href="#">Lire plus</a>
+      </article>
 
-  <main>
-    <div class="card">
-      <h1>Des questions ?</h1>
-      <p>
-        Si tu as des questions, n'hésite pas à me les poser, sur :
-      </p>
-      <p>
-        <h1>Sur Instagram : </h1>
-        <a href="https://www.instagram.com/repar.tech33/?next=%2F" target="_blank" style="color:#cfd8e3; text-decoration:none; font-weight:bold;">
-          👉 Instagram : Repar.tech33
-        </a>
-      <p>
-        <h1>Par mail : </h1>
-        <a href="mailto:tonemail@example.com" target="_blank" style="color:#cfd8e3; text-decoration:none; font-weight:bold;">
-          👉 Mail : rafael.compagny@gmail.com
-        </a>
-      </p>
-    </div>
+      <article class="post">
+        <h2>A venir</h2>
+        <p>En écriture</p>
+        <a href="#">...</a>
+      </article>
+    </section>
   </main>
-
   <footer>
-    © <span id="year"></span> FixitPhone — Micro-entreprise · Tous droits réservés
+    © <span id="year"></span> FixitPhone
   </footer>
-</div>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  </div>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
   <script>
         const hamburger = document.getElementById("hamburger");
         const navLinks = document.querySelector(".nav-links");
