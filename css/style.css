@@ -245,6 +245,32 @@ h1 {
   font-size: 13px;
 }
 
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10 px;
+    justify-content: center;
+}
+
+/* Style des box */
+.service-box {
+  flex: 1 1 48%;  /* occupe ~ la moitié de la largeur sur mobile */
+  max-width: 48%; /* limite la taille */
+  box-sizing: border-box;
+  background: #111827;
+  padding: 15px;
+  border-radius: 12px;
+  color: white;
+}
+
+/* Pour les écrans très petits, une box par ligne */
+@media (max-width: 400px) {
+  .service-box {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
 /* ================================================= */
 /* TARIFS */
 /* ================================================= */
