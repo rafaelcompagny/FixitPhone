@@ -9,6 +9,45 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+   <!-- BLACK FRIDAY BANNER -->
+<div id="bf-banner" class="bf-banner">
+  <div class="bf-inner">
+    <div class="bf-text">Black Friday — Jusqu'à -30% sur les remplacements d'écran !</div>
+    <div id="bf-countdown" class="bf-countdown">00j 00:00:00</div>
+    <button id="bf-open" class="btn small">Voir les offres</button>
+    <button id="bf-close" class="bf-close" aria-label="Fermer">✕</button>
+  </div>
+</div>
+
+<!-- BLACK FRIDAY MODAL -->
+<div id="bf-modal" class="bf-modal" aria-hidden="true">
+  <div class="bf-modal-content">
+    <button id="bf-modal-close" class="bf-modal-close">✕</button>
+    <h2>Offres Black Friday</h2>
+    <p>Profitez de réductions sur nos services : <strong>-30% écrans standard</strong>, <strong>-20% batteries</strong>. Codes valables jusqu'à la fin du compte à rebours.</p>
+
+    <div class="bf-offers">
+      <div class="offer">
+        <h3>-30% Écrans (code)</h3>
+        <p>Code : <strong id="code-30">BF30</strong></p>
+        <button class="btn" data-code="BF30">copier le code</button>
+      </div>
+
+      <div class="offer">
+        <h3>-20% Batteries (code)</h3>
+        <p>Code : <strong id="code-20">BF20</strong></p>
+        <button class="btn" data-code="BF20">copier le code</button>
+      </div>
+
+      <div class="offer">
+        <h3>-15% Sur tout (code)</h3>
+        <p>Code : <strong id="code-15">BF15</strong></p>
+        <button class="btn" data-code="BF15">copier le code</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <div class="container">
     <header>
       <div class="brand">
@@ -36,9 +75,10 @@
         <li><a class="small" href="FAQ.html">FAQ</a></li>
         <li><a class="small" href="contacter.html">contacter</a></li>
         <li><a class="small" href="demande.html">Prise de RDV</a></li>
+        <li><a class="small" href="carte-cadeaux.html">carte-cadeaux</a></li>
+        <li><a class="small" href="fidelite.html">Fidélité</a></li>
         <li><a class="small" href="Vente.html">Vente</a></li>
         <li><a class="small" href="blog.html">Notre blog</a></li>
-        <li><a class="small" href="pro.html">Page de partenariat</a></li>
       </ul>
     </nav>
     <div class="hamburger" id="hamburger">
@@ -46,7 +86,6 @@
       <span></span>
       <span></span>
     </div>
-    
     </header>
     
  <main class="container">
@@ -71,23 +110,181 @@
         <p>Pour plus d'Informations, contacter moi directement par mail, ou par message (toute blage ou manque de respect aura des conséquence)</p>
       </div>
     </section>
-  </main>
-
   <footer>
-    © <span id="year"></span> FixitPhone
-  </footer>
-  </div>
-  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
-  <script>
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.querySelector(".nav-links");
+      © <span id="year"></span> FixitPhone — Micro-entreprise · Tous droits réservés</br>
+      </br>
+      <a href="site.html" target="_blank">Besoin d'un site web ? Contacter moi pour un devis</a></br>
+      </br>
+      <a href="pro.html" target="_blank">Me contacter pour des partenariat, que du sérieux s'il vous plait </a>
+      </br>
+      .
+    </footer>
+</div>
+</main>
 
-        hamburger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-        });
-      </script>
-          <a href="https://wa.me/33629482256" target="_blank" class="whatsapp-float">
-      💬 Discuter sur WhatsApp
-    </a>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    // Toggle menu
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation(); // empêche de fermer direct
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("active");
+    });
+
+    // Fermer si on clique sur un lien
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("active");
+      });
+    });
+
+    // Fermer si on clique en dehors
+    document.addEventListener("click", (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("active");
+      }
+    });
+  });
+  </script>
+
+<script>
+  // Sélectionne tous les boutons avec la classe .btn
+  document.querySelectorAll('.offer .btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const code = button.getAttribute('data-code'); // récupère le code
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = "Code copié !"; // message temporaire
+        setTimeout(() => button.textContent = "Copier le code", 1500);
+      }).catch(err => {
+        console.error('Erreur lors de la copie du code :', err);
+      });
+    });
+  });
+</script>
+
+<script>
+(function(){
+  // config : date de fin BF (YYYY, M-1, D, H, m, s)
+  const bfEnd = new Date(2025, 10, 30, 23, 59, 59); // exemple 30 Nov 2025
+  const banner = document.getElementById('bf-banner');
+  const countdownEl = document.getElementById('bf-countdown');
+  const openBtn = document.getElementById('bf-open');
+  const closeBtn = document.getElementById('bf-close');
+  const modal = document.getElementById('bf-modal');
+
+  // start countdown
+  function updateCountdown(){
+    const now = new Date();
+    const diff = bfEnd - now;
+    if(diff <= 0){
+      // hide banner if expired
+      banner.style.display = 'none';
+      document.body.classList.remove('with-bf-banner');
+      return;
+    }
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = String(Math.floor((diff/(1000*60*60))%24)).padStart(2,'0');
+    const mins = String(Math.floor((diff/(1000*60))%60)).padStart(2,'0');
+    const secs = String(Math.floor((diff/1000)%60)).padStart(2,'0');
+    countdownEl.textContent = `${days}j ${hours}:${mins}:${secs}`;
+  }
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 1000);
+
+  openBtn.addEventListener('click', ()=> {
+    modal.setAttribute('aria-hidden','false');
+  });
+  closeBtn.addEventListener('click', ()=> {
+    modal.setAttribute('aria-hidden','true');
+  });
+  document.getElementById('bf-modal-close').addEventListener('click', ()=> {
+    modal.setAttribute('aria-hidden','true');
+  });
+
+  // Apply coupon code to forms: when user clicks "Appliquer ce code"
+  document.querySelectorAll('.bf-modal-content .offer button').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      const code = btn.getAttribute('data-code');
+      // Add code to all forms: create/replace hidden input name="coupon"
+      document.querySelectorAll('form').forEach(f=>{
+        let inp = f.querySelector('input[name="coupon"]');
+        if(!inp){
+          inp = document.createElement('input');
+          inp.type = 'hidden';
+          inp.name = 'coupon';
+          f.appendChild(inp);
+        }
+        inp.value = code;
+      });
+      // Provide visual feedback
+      btn.textContent = 'Code copié';
+      btn.disabled = true;
+      setTimeout(()=>{ btn.textContent = 'copier ce code'; btn.disabled = false; }, 2500);
+      // close modal
+      modal.setAttribute('aria-hidden','true');
+      // ensure banner stays visible class on body
+      document.body.classList.add('with-bf-banner');
+      alert('Le code '+code+' a été copié.');
+    });
+  });
+
+  // close modal on outside click
+  modal.addEventListener('click', (e)=>{
+    if(e.target === modal) modal.setAttribute('aria-hidden','true');
+  });
+
+  // close banner button
+  closeBtn.addEventListener('click', ()=>{
+    banner.style.display = 'none';
+    document.body.classList.remove('with-bf-banner');
+    clearInterval(timer);
+  });
+
+  // show banner (if under date) and add class
+  if(new Date() < bfEnd){
+    banner.style.display = 'flex';
+    document.body.classList.add('with-bf-banner');
+  } else {
+    banner.style.display = 'none';
+  }
+})();
+</script>
+
+
+
+  <a href="https://wa.me/33629482256" target="_blank" class="whatsapp-float">
+    💬 Discuter sur WhatsApp
+  </a>
+
+<script>
+function checkReward() {
+  const points = parseInt(document.getElementById('userPoints').value);
+  let message = "Aucune récompense";
+
+    if (points >= 1000) message = "Réparation d'écran (tablette, montre connecté, téléphone) offerte";
+    else if (points >= 750) message = "Réparation offerte d'écran de téléphone";
+    else if (points >= 500) message = "Réparation offerte (basique, batterie / port, ...)";
+    else if (points >= 350) message = "Carte cadeau 50€";
+    else if (points >= 200) message = "Carte cadeau de 25€";
+    else if (points >= 100) message = "10% de réduction";
+    else message = "Aucune récompense"; 
+
+  document.getElementById('rewardMessage').textContent = `Votre récompense : ${message}`;
+}
+</script>
+
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>

@@ -22,17 +22,14 @@
 
 html, body {
   height: 100%;
-}
-
-body {
   margin: 0;
+  padding: 32px 16px;
   background: linear-gradient(180deg, var(--bg) 0%, #071023 100%);
   color: #e6eef6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.4;
   font-size: 16px;
-  padding: 32px 16px;
   display: flex;
   justify-content: center;
 }
@@ -48,14 +45,14 @@ body {
 header {
   background: #0f172a;
   color: white;
-  padding: 10px 15px;
+  padding: 15px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  top: 0; left: 0;
+  top: 50px; left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 900;
 }
 
 main {
@@ -91,6 +88,12 @@ h1 {
 }
 
 /* -------- NAV -------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 .navbar {
   display: flex;
   align-items: center;
@@ -98,8 +101,10 @@ h1 {
 }
 
 .nav-links {
+  position: fixed;
   display: none;
   flex-direction: column;
+  align-items: center;
   position: fixed;
   top: 0;
   right: 0;
@@ -111,15 +116,38 @@ h1 {
   z-index: 1000;
   transform: translateX(100%);
   gap: 20px;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
+  transition: transform 0.4s ease;
   max-height: 0;
   overflow: hidden;
+  overflow-y: auto; /* 👈 permet de scroller si trop de liens */
+  scrollbar-width: thin; /* 👈 joli scroll discret */
+  scrollbar-color: #00ffaa #0a0a0a;
 }
+
+/* Scrollbar personnalisée pour Chrome / Edge */
+.nav-links::-webkit-scrollbar {
+  width: 6px;
+}
+.nav-links::-webkit-scrollbar-thumb {
+  background-color: #00ffaa;
+  border-radius: 3px;
+}
+.nav-links::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Quand le menu est actif */
+.nav-active {
+  transform: translateX(0);
+}
+
 
 .nav-links a {
   color: #6be4cc;
   text-decoration: none;
-  font-size: 1rem;
+  margin: 15px 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
   font-weight: 600;
   transition: color 0.3s;
 }
@@ -127,7 +155,7 @@ h1 {
 .nav-links.active {
     display: flex;
     transform: translateX(0);
-    max-height: 650px; /* assez grand pour contenir tous les liens */
+    max-height: 850px; /* assez grand pour contenir tous les liens */
 }
 
 /* Animation des liens */
@@ -139,26 +167,6 @@ h1 {
 .nav-links a:hover {
   color: #336158;
 }
-
-/* -------- BOUTON RDV -------- */
-.btn {
-  white-space: nowrap;
-  background: var(--accent);
-  color: #042022;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #336158;
-  color: white;
-}
-
 /* ================================================= */
 /* HAMBURGER ANIMÉ */
 /* ================================================= */
@@ -190,6 +198,30 @@ h1 {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translateY(-9px);
 }
+
+
+/* ================================================= */
+/* BOUTON RDV  */
+/* ================================================= */
+
+.btn {
+  white-space: nowrap;
+  background: var(--accent);
+  color: #042022;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #336158;
+  color: white;
+}
+
 
 /* ================================================= */
 /* HERO + SERVICES */
@@ -501,4 +533,378 @@ footer {
 /* Liens généraux */
 a {
   color: white;
+}
+
+
+
+/* --- PAGE CARTES CADEAUX --- */
+
+.gift-main {
+  text-align: center;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.hero h2 {
+  color: #00ffc3;
+  font-size: 2rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 10px auto 40px;
+  opacity: 0.9;
+}
+
+/* Cartes cadeau */
+.gift-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gift-card {
+  background: linear-gradient(145deg, #1e293b, #111827);
+  border-radius: 15px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 0 20px rgba(0, 255, 195, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 255, 195, 0.3);
+}
+
+.gift-card h3 {
+  color: #00ffc3;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.gift-card p {
+  opacity: 0.9;
+  margin-bottom: 15px;
+}
+
+.btn {
+  background: #00ffc3;
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #00e6b0;
+}
+
+/* Section d’infos */
+.info-section {
+  margin-top: 60px;
+  background: rgba(17, 24, 39, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 700px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.info-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-section li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.info-section li::before {
+  content: "✔";
+  color: #00ffc3;
+  position: absolute;
+  left: 0;
+}
+
+
+/* ---------- Black Friday banner --------- */
+.bf-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg,#111827,#0b1220);
+  color: #fff;
+  z-index: 1200;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.bf-inner {
+  width: 100%;
+  max-width: var(--max-w);
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding: 10px 16px;
+}
+.bf-text { font-weight:700; color: #ffd166; }
+.bf-countdown { margin-left:auto; font-weight:700; color:#fff; }
+.bf-close { margin-left:8px; background:transparent; color:#fff; border:none; font-size:18px; cursor:pointer; }
+
+/* modal */
+.bf-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7); /* écran bien assombri */
+  backdrop-filter: blur(3px);
+  z-index: 1300;
+}
+.bf-modal[aria-hidden="false"] { display:flex; }
+.bf-modal-content {
+  background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.02));
+  padding: 20px;
+  border-radius: 12px;
+  width: 92%;
+  max-width: 720px;
+  color: #e6eef6;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+}
+.bf-modal-close { float:right; background:transparent; color:#fff; border:none; font-size:20px; cursor:pointer; }
+.bf-offers { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+.bf-offers .offer { background: rgba(255,255,255,0.02); padding:12px; border-radius:10px; flex:1 1 200px; }
+.note { color:var(--muted); margin-top:12px; font-size:14px; }
+
+/* small btn for banner */
+.btn.small { padding:6px 10px; font-size:14px; }
+
+/* push page content down so banner doesn't overlap header content */
+body.with-bf-banner { padding-top: 96px; } /* ajustar si nécessaire */
+
+
+
+
+
+/* ================================================= */
+/* PAGE FIDÉLITÉ */
+/* ================================================= */
+.fidelite-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 120px;
+  padding: 20px;
+  max-width: 600px;
+}
+
+/* Carte fidélité */
+.fidelite-card {
+  width: 340px;
+  height: 200px;
+  background: linear-gradient(145deg, #0b1220 0%, #111b2d 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.fidelite-card::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle at 30% 30%, rgba(0,184,148,0.2), transparent 60%);
+  transform: rotate(25deg);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+.card-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+.card-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.card-idClient {
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 10;
+  font-size: 1.0rem;
+}
+
+
+.card-info {
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.points {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.qr {
+  width: 60px;
+  height: 60px;
+  background: white;
+  mask-image: url('https://api.qrserver.com/v1/create-qr-code/?data=https://fixit-phone.vercel.app&size=60x60');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+}
+
+/* Formulaire d’inscription fidélité */
+.fidelite-form {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 400px;
+}
+.fidelite-form h3 {
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.fidelite-form input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+.fidelite-form button {
+  background: var(--accent);
+  color: #042022;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.fidelite-form button:hover {
+  background: #048f73;
+}
+
+h2 {
+  color: #fff; /* Orange Black Friday */
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+/* Tableau */
+.loyalty-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.loyalty-table th, .loyalty-table td {
+  padding: 12px;
+  border: 1px solid #444;
+  text-align: center;
+}
+
+.loyalty-table th {
+  background-color: #336158;
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.loyalty-table tbody tr:nth-child(even) {
+  background-color: #336158 ;
+}
+
+.loyalty-table tbody tr:hover {
+  background-color: #336158;
+  color: #fff;
+  transition: 0.3s;
+}
+
+/* Input points et bouton */
+.points-input {
+  margin-bottom: 20px;
+}
+
+.points-input input {
+  padding: 10px;
+  width: 120px;
+  border-radius: 6px;
+  border: none;
+  margin-right: 10px;
+  font-size: 1em;
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #336158;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: #336158;
+  transform: scale(1.05);
+}
+
+/* Message récompense */
+.reward-message {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ffd700; /* doré */
+}
+
+
+tbody {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, #071023 100%);
+  color: #fff;
+  margin: 0;
+  padding: 0;
 }

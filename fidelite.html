@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FixitPhone</title>
+  <title>Fidélité – FixitPhone</title>
   <link rel="shortcut icon" href="img/logo.jpg" type="image/gif">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-   <!-- BLACK FRIDAY BANNER -->
+
+       <!-- BLACK FRIDAY BANNER -->
 <div id="bf-banner" class="bf-banner">
   <div class="bf-inner">
     <div class="bf-text">Black Friday — Jusqu'à -30% sur les remplacements d'écran !</div>
@@ -48,13 +49,11 @@
   </div>
 </div>
 
-
-  <div class="container">
-    <header>
+ <header>
       <div class="brand">
         <img src="img/logo.jpg" alt="FixitPhone" class="logo-img">
         <div>
-          <h1>FixitPhone - FAQ</h1>
+          <h1>FixitPhone - Fidélité</h1>
           <div class="tag">Micro-entreprise — Réparations rapides & garanties</div>
         </div>
         
@@ -87,28 +86,124 @@
       <span></span>
       <span></span>
     </div>
-    
     </header>
 
-  <main>
-    <div class="card">
-      <h1>Des questions ?</h1>
-      <p>
-        Si tu as des questions, n'hésite pas à me les poser, sur :
-      </p>
-      <p>
-        <h1>Sur Instagram : </h1>
-        <a href="https://www.instagram.com/repar.tech33/?next=%2F" target="_blank" style="color:#cfd8e3; text-decoration:none; font-weight:bold;">
-          👉 Instagram : Repar.tech33
-        </a>
-      <p>
-        <h1>Par mail : </h1>
-        <a href="mailto:tonemail@example.com" target="_blank" style="color:#cfd8e3; text-decoration:none; font-weight:bold;">
-          👉 Mail : rafael.compagny@gmail.com
-        </a>
-      </p>
+<main class="fidelite-container">
+<div class="container">
+    <h1>💎 Programme de Fidélité FixitPhone</h1>
+    <p class="intro">
+      Rejoignez notre programme de fidélité et gagnez des points à chaque réparation !  
+      <br>Chaque réparation = <strong>entre 20 et 100 point</strong> — dès <strong>500 points</strong>, vous obtenez une réduction ou une prestation offerte 🎁
+      <br>Plein de cadeau pour chaque point, et <strong>100 POINTS OFFERT</strong> à la création de la carte
+    </p>
+
+   <div class="fidelite-card">
+      <div class="card-header">
+        <h2>Carte de Fidélité</h2> </br>
+        <img src="img/logo.jpg" alt="FixitPhone">
+      </div>
+      <div class="card-idClient">
+        <h8>Id client : FIXIT-FID-0A0A0A</h8>
+      </div>
+      <div class="card-info">
+        <div class="points">Points : 120</div>
+        <div class="qr"><img src="img/qrcode.jpg" alt="FixitPhone"></div>
+      </div>
     </div>
-  <footer>
+
+    <h2>Créer ma carte fidélité</h2>
+    <form action="https://formspree.io/f/xzzkkljd" method="POST">
+      <label>Nom :</label>
+      <input type="text" name="nom" placeholder="Votre nom et prénom" required>
+
+      <label>Prénom :</label>
+      <input type="text" name="nom" placeholder="Votre nom et prénom" required>
+
+      <label>Adresse e-mail :</label>
+      <input type="email" name="email" placeholder="Votre adresse mail" required>
+
+      <label>Téléphone :</label>
+      <input type="text" name="telephone" placeholder="06 12 34 56 78" required>
+
+      <label>Date de Naissance (jour/mois/année):</label>
+      <input type="text" name="année de Naissance" placeholder="01/01/2001" required>
+
+      <input type="hidden" name="subject" value="Nouvelle inscription carte fidélité">
+
+      <button class="submit" type="submit">Créer ma carte</button>
+    </form>
+
+
+
+    <h2 style="margin-top:40px;">🔍 Consulter mes points</h2>
+
+    <form action="https://formspree.io/f/mdkpprpr" method="POST">
+        <label>Prénom et Nom :</label>
+        <input type="text" name="nom" placeholder="Votre nom et prénom" required>
+
+        <label>Adresse e-mail (utilisée lors de l’inscription)</label>
+        <input type="email" name="email" placeholder="exemple@mail.com" required>
+
+        <label>id client</label>
+        <input type="text" name="id client" placeholder="FIXIT-FID-0A0A0A" required>
+
+        <input type="hidden" name="subject" value="Demande de solde points fidélité">
+        <button class="submit" type="submit">Demander mon solde</button>
+    </form>
+
+    <p class="small">⏳ Tu recevras une réponse sous 24h par e-mail avec ton solde de points actuel.</p>
+
+
+    <h2 style="text-align:center;">Programme de fidélité</h2>
+
+<div class="container">
+  <h2>Programme de fidélité</h2>
+
+  <table class="loyalty-table">
+  <thead>
+    <tr>
+      <th>Points</th>
+      <th>Récompense</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>10% de réduction</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>25€ de réduction</td>
+    </tr>
+    <tr>
+      <td>350</td>
+      <td>Carte cadeau 50€</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>réparation offerte (basique, soite batterie / port, ...)</td>
+    </tr>
+    <tr>
+      <td>750</td>
+      <td>Réparation offerte d'écran de téléphone</td>
+    </tr>
+    <tr>
+      <td>1000</td>
+      <td>Réparation d'écran (tablette, montre connecté, téléphone) offerte</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="points-input">
+  <label for="userPoints">Entrez vos points : </label>
+  <input type="number" id="userPoints" min="0" placeholder="Ex: 120">
+  <button class="btn" onclick="checkReward()">Voir ma récompense</button>
+</div>
+
+<div class="reward-message" id="rewardMessage"></div>
+
+    <footer>
       © <span id="year"></span> FixitPhone — Micro-entreprise · Tous droits réservés</br>
       </br>
       <a href="site.html" target="_blank">Besoin d'un site web ? Contacter moi pour un devis</a></br>
