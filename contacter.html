@@ -7,6 +7,26 @@
   <link rel="shortcut icon" href="img/logo.jpg" type="image/gif">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.sj?client=ca-pub-2558487495598018" crossorigin="anonymous"></script>
+  
+    <script>
+      const CONFIGURATION = {
+        "locations": [
+          {"title":"FixitPhone","address1":"00 rue Lafontaine","address2":"Talence - (33400), France","coords":{"lat":44.8045728,"lng":-0.5828467},"placeId":"ChIJMTDdIGsnVQ0RIpQHxWTTY9Y"}
+        ],
+        "mapOptions": {"center":{"lat":38.0,"lng":-100.0},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":false,"zoom":4,"zoomControl":true,"maxZoom":17,"mapId":""},
+        "mapsApiKey": "YOUR_API_KEY_HERE",
+        "capabilities": {"input":false,"autocomplete":false,"directions":false,"distanceMatrix":false,"details":false,"actions":false}
+      };
+
+    </script>
+    <script type="module">
+      document.addEventListener('DOMContentLoaded', async () => {
+        await customElements.whenDefined('gmpx-store-locator');
+        const locator = document.querySelector('gmpx-store-locator');
+        locator.configureFromQuickBuilder(CONFIGURATION);
+      });
+    </script>>
 </head>
 <body>
    <!-- BLACK FRIDAY BANNER -->
@@ -108,6 +128,15 @@
       <p>Accédez à notre atelier en un clic grâce à Google Maps intégré.</p>
       <a class="btn" href="https://www.google.com/maps/place/FixitPhone/@44.8035856,-0.5864095,687m/data=!3m2!1e3!4b1!4m6!3m5!1s0xd55276b20dd3031:0xd663d364c5079422!8m2!3d44.8035856!4d-0.5838346!16s%2Fg%2F11xw8hh05p?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D" target="_blank">📍 Voir sur Maps</a>
     </div>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
+
+    <!-- Uses components from the Extended Component Library; see
+         https://github.com/googlemaps/extended-component-library for more information
+         on these HTML tags and how to configure them. -->
+    <gmpx-api-loader key="YOUR_API_KEY_HERE" solution-channel="GMP_QB_locatorplus_v11_c"></gmpx-api-loader>
+    <gmpx-store-locator map-id="DEMO_MAP_ID"></gmpx-store-locator>
+
 
     <div class="feature">
       <h2>📍 Laisse nous un avis</h2>
